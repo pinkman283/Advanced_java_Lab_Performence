@@ -11,7 +11,7 @@ public class Main {
         ArrayList<Employee> employees=new ArrayList<>();
         for (int i = 0; i < 3; i++) {
             System.out.println("enter 1 for employee vacation, enter 2 for exit");
-            int a=sc.nextInt();
+            int a= Integer.parseInt(sc.nextLine());
             if(a==1) {
                 System.out.println("\nEnter information for Employee ");
 
@@ -22,7 +22,7 @@ public class Main {
                 String name = sc.nextLine();
 
                 System.out.print("Date of Birth (dd/MM/yyyy): ");
-                String dob = sc.nextLine();
+                String date_of_birth = sc.nextLine();
 
 
                 System.out.println("Email: ");
@@ -34,15 +34,19 @@ public class Main {
                 System.out.print("Joining Date (dd/MM/yyyy): ");
                 LocalDate joinDate = LocalDate.parse(sc.nextLine(), formatter);
 
-                employees.add(new Employee(id, name, dob, email, joinDate, type));
+                employees.add(new Employee(id, name, date_of_birth, email, joinDate, type));
             }
             else {
                 break;
             }
             }
 
-
-            System.out.println("   Employee Leave Information");
+            if(employees.isEmpty()) {
+                System.out.println("exit successful");
+            }
+            else {
+                System.out.println("Employee Leave Information");
+            }
 
             for (Employee emp : employees) {
 
